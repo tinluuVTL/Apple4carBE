@@ -259,7 +259,7 @@ async function suaThongTinUser(IDUsers, HoTen, Quyen, UserName) {
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'dangtuanthanh265@gmail.com',
+    user: 'vtin2802@gmail.com',
     pass: process.env.EMAIL_PASSWORD // Sử dụng biến môi trường EMAIL_PASSWORD
   }
 });
@@ -268,8 +268,8 @@ async function thongtin(data) {
   try {
     let pool = await sql.connect(config);
     let mailOptions = {
-      from: 'dangtuanthanh265@gmail.com',
-      to: 'cuathanhday265@gmail.com',
+      from: 'vtin2802@gmail.com',
+      to: 'xitenten003@gmail.com',
       subject: 'Thông báo về việc có đơn thuê xe mới',
       text: `Chào bạn. Đã có đơn hàng mới. 
       Thông tin đơn hàng: 
