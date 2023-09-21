@@ -28,10 +28,10 @@
 // };
 
 const config = {
-  user: "tuanthanh_apple4car",
-  password: "12345",
-  server: "sql.bsite.net\\MSSQL2016",
-  database: "tuanthanh_apple4car",
+  user: "vantin",
+  password: "171282",
+  server: "sql.bsite.net\MSSQL2016",
+  database: "vantin_applecar",
   options: {
     trustedconnection: true,
     trustServerCertificate: true,
