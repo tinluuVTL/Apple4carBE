@@ -28,7 +28,7 @@
 // };
 
 const config = {
-  user: "vantin",
+  user: "vantin_",
   password: "171282",
   server: "sql.bsite.net\MSSQL2016",
   database: "vantin_applecar",
