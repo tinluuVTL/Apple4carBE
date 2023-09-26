@@ -375,7 +375,42 @@ async function getThongTinXe() {
   }
 }
 
+async function getxe(maxe) {
+  try {
+    let pool = await sql.connect(config);
+    let result = await pool
+      .request()
+      .input("maxe", sql.Int, maxe)
+      .query(
+        "SELECT * FROM [dbo].[XE] WHERE [maxe] = @maxe"
+      );
 
+    return result.recordset;
+  } catch (error) {
+    console.log("Lỗi Tải Dữ Liệu Contact: " + error);
+    throw error;
+  } finally {
+    sql.close();
+  }
+}
+async function getuser(IDUsers) {
+  try {
+    let pool = await sql.connect(config);
+    let result = await pool
+      .request()
+      .input("IDUsers", sql.Int, IDUsers)
+      .query(
+        "SELECT * FROM [dbo].[users] WHERE [IDUsers] = @IDUsers"
+      );
+
+    return result.recordset;
+  } catch (error) {
+    console.log("Lỗi Tải Dữ Liệu Contact: " + error);
+    throw error;
+  } finally {
+    sql.close();
+  }
+}
 module.exports = {
   layxe: layxe,
   layuser: layuser,
@@ -393,4 +428,6 @@ module.exports = {
   getgia: getgia,
   getcontact:getcontact,
   getThongTinXe:getThongTinXe,
+   getxe: getxe,
+  getuser:getuser
 };
