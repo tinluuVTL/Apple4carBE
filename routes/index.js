@@ -264,5 +264,44 @@ router.get('/gia/:numberOfDays/:maLoaiXe', async (req, res) => {
     res.status(500).send(err.message);
   }
 });
+//todo Xuất thông tin xe theo id mã xe
+router.get("/getxe/:maxe", function (req, res, next) {
+  const maxe = req.params.maxe; // Lấy id contact từ tham số đường dẫn
 
+  sql
+    .getxe(maxe)
+    .then((result) => {
+      if (result.length > 0) {
+        res.json(result[0]); // Chỉ xuất ra dữ liệu của phần tử đầu tiên trong kết quả
+      } else {
+        res
+          .status(404)
+          .json({ error: "Không tìm thấy thông tin liên hệ với id " + maxe });
+      }
+    })
+    .catch((error) => {
+      console.log("Lỗi Tải Dữ Liệu Contact: " + error);
+      res.status(500).json({ error: "Lỗi Tải Dữ Liệu Contact" });
+    });
+});
+//todo : lấy user theo idusers
+router.get("/getuser/:IDUsers", function (req, res, next) {
+  const IDUsers = req.params.IDUsers; // Lấy id contact từ tham số đường dẫn
+
+  sql
+    .getuser(IDUsers)
+    .then((result) => {
+      if (result.length > 0) {
+        res.json(result[0]); // Chỉ xuất ra dữ liệu của phần tử đầu tiên trong kết quả
+      } else {
+        res
+          .status(404)
+          .json({ error: "Không tìm thấy thông tin liên hệ với id " + IDUsers });
+      }
+    })
+    .catch((error) => {
+      console.log("Lỗi Tải Dữ Liệu Contact: " + error);
+      res.status(500).json({ error: "Lỗi Tải Dữ Liệu Contact" });
+    });
+});
 module.exports = router;
